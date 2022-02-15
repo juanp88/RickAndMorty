@@ -1,15 +1,15 @@
-class LocationResult {
-  LocationResult({
+class EpisodesResult {
+  EpisodesResult({
     required this.info,
     required this.results,
   });
   late final Info info;
-  late final List<Location> results;
+  late final List<Episode> results;
 
-  LocationResult.fromJson(Map<String, dynamic> json) {
+  EpisodesResult.fromJson(Map<String, dynamic> json) {
     info = Info.fromJson(json['info']);
     results =
-        List.from(json['results']).map((e) => Location.fromJson(e)).toList();
+        List.from(json['results']).map((e) => Episode.fromJson(e)).toList();
   }
 
   Map<String, dynamic> toJson() {
@@ -49,30 +49,30 @@ class Info {
   }
 }
 
-class Location {
-  Location({
+class Episode {
+  Episode({
     required this.id,
     required this.name,
-    required this.type,
-    required this.dimension,
-    required this.residents,
+    required this.airDate,
+    required this.episode,
+    required this.characters,
     required this.url,
     required this.created,
   });
   late final int id;
   late final String name;
-  late final String type;
-  late final String dimension;
-  late final List<String> residents;
+  late final String airDate;
+  late final String episode;
+  late final List<String> characters;
   late final String url;
   late final String created;
 
-  Location.fromJson(Map<String, dynamic> json) {
+  Episode.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
-    type = json['type'];
-    dimension = json['dimension'];
-    residents = List.castFrom<dynamic, String>(json['residents']);
+    airDate = json['air_date'];
+    episode = json['episode'];
+    characters = List.castFrom<dynamic, String>(json['characters']);
     url = json['url'];
     created = json['created'];
   }
@@ -81,9 +81,9 @@ class Location {
     final _data = <String, dynamic>{};
     _data['id'] = id;
     _data['name'] = name;
-    _data['type'] = type;
-    _data['dimension'] = dimension;
-    _data['residents'] = residents;
+    _data['air_date'] = airDate;
+    _data['episode'] = episode;
+    _data['characters'] = characters;
     _data['url'] = url;
     _data['created'] = created;
     return _data;

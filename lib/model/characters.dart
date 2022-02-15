@@ -32,7 +32,7 @@ class Info {
   late final int count;
   late final int pages;
   late final String next;
-  late final Null prev;
+  late final String? prev;
 
   Info.fromJson(Map<String, dynamic> json) {
     count = json['count'];

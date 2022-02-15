@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rick_and_morty/routes.dart';
 import 'package:provider/provider.dart';
 import 'package:rick_and_morty/viewmodel/character_view_model.dart';
+import 'package:rick_and_morty/viewmodel/episodes_view_model.dart';
+import 'package:rick_and_morty/viewmodel/locations_view_model.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return (MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => CharacterViewModel()),
+        ChangeNotifierProvider(create: (_) => EpisodesViewModel()),
+        ChangeNotifierProvider(create: (_) => LocationsViewModel()),
+        ChangeNotifierProvider(create: (_) => CharacterViewModel())
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
